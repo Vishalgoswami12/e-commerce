@@ -40,14 +40,36 @@ function App() {
     category:"Home Decor",
     seller:"ABS LTD",
     price:"50"
-  }
+  },
+  {
+    url:"https://media.istockphoto.com/id/165853320/photo/wristwatch.jpg?s=1024x1024&w=is&k=20&c=7oll9jl5c1A76ePrPFSQRir5FuyzESwi0YCTcHtnL6M=",
+    name:"Watch Black",
+    category:"watches",
+    seller:"watch ltd"  ,
+    price:5899
+  },
+  {
+    url:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name:"Track Shoes",
+    category:"Shoes",
+    seller:"Shoes LTD",
+    price:2599
+  },
   ])
   const[cart,setCart] = useState([])
   const[showCart, setShowCart] = useState(false)
 
   const addToCart = (data) => {
     // console.log(data)
-    setCart([...cart,{...data, quantity:1}])
+    const itemIndex = cart.findIndex(item => item.name === data.name);
+    if (itemIndex === -1) {
+      setCart([...cart, { ...data, quantity: 1 }]);
+    } else {
+      const updatedCart = cart.map((item, index) => 
+        index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCart(updatedCart);
+    }
   }
   const handleShow = (val) => {
     setShowCart(val)
@@ -57,7 +79,7 @@ function App() {
       <Header count={cart.length} handleShow={handleShow} />
       {
         showCart ? 
-          <CardList cart={cart}/> :  
+          <CardList cart={cart} setCart={setCart}/> :  
            <ProductList product={product} addToCart={addToCart}/>
       }
      
