@@ -58,6 +58,7 @@ function App() {
   ])
   const[cart,setCart] = useState([])
   const[showCart, setShowCart] = useState(false)
+  const[cartData,setCartData] = useState()
 
   const addToCart = (data) => {
     // console.log(data)
@@ -71,9 +72,11 @@ function App() {
       setCart(updatedCart);
     }
   }
+
   const handleShow = (val) => {
     setShowCart(val)
   }
+
   return (
     <div className="App">
       <Header count={cart.length} handleShow={handleShow} />

@@ -2,17 +2,10 @@ import React from "react"
 
 function CardList({cart, setCart}){
 
-    // const[CART, setCART] = useState([])
-
-    // useEffect(()  => {
-
-    //     setCART(cart)
-
-    // },[cart])
     return (
         <div style={styles.container}>
             {cart.length === 0 ? (
-                <p style={styles.emptyCartMessage}>Please add product</p>
+                <p style={styles.emptyCartMessage}>You dont have any Product to Purchase</p>
             ) : (
                 <>
                     {cart.map((ele, cardindex) => {
@@ -58,7 +51,7 @@ const styles = {
         fontSize: '18px',
         textAlign: 'center',
         fontWeight: 'bold',
-        color: '#555'
+        color: 'red'
     },
       card: {
         display: 'flex',
