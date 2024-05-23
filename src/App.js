@@ -55,10 +55,16 @@ function App() {
     seller:"Shoes LTD",
     price:2599
   },
+  {
+    url:"https://media.istockphoto.com/id/165853320/photo/wristwatch.jpg?s=1024x1024&w=is&k=20&c=7oll9jl5c1A76ePrPFSQRir5FuyzESwi0YCTcHtnL6M=",
+    name:"Watch Black",
+    category:"watches",
+    seller:"watch ltd"  ,
+    price:5899
+  }
   ])
   const[cart,setCart] = useState([])
   const[showCart, setShowCart] = useState(false)
-  const[cartData,setCartData] = useState()
 
   const addToCart = (data) => {
     // console.log(data)
